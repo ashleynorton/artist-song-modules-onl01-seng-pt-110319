@@ -3,20 +3,18 @@ require 'pry'
 class Artist
   extend Memorable
   
+  @@artists = []
+ 
   attr_accessor :name
-  attr_reader :songs
-
-  @@all = []
-
-  def initialize
-    @@all << self
-    @songs = []
+ 
+  def initialize(name)
+    @name = name
   end
-
+ 
   def self.all
-    @@all
+    @@artists
   end
-
+ 
   def add_song(song)
     @songs << song
     song.artist = self
